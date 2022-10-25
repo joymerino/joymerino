@@ -1,16 +1,25 @@
+# List files of a google folder
 url_googledrive <- "https://drive.google.com/drive/u/0/folders/1ZoHeyrLXAkqjY9VDfs8TNPNYf1l9na4a"
 id_googledrive <- "1ZoHeyrLXAkqjY9VDfs8TNPNYf1l9na4a"
 
 dir_files <- googledrive::drive_ls(path = url_googledrive)
+
+#RUN 
+
 dir_files$name
 
+ #RUN
+ 
+ #Download a file
+ 
 a <- googledrive::drive_ls(path = url_googledrive)
+###### to list only by type add a comma and type statement in the paraenthises. type ="doc" 
 
-file_name <- "data.xlsx"
+file_name <- "FY 23 In House MARFIN - Merino Application "
 # find the id of that file
 file_id <- a$id[which(a$name==file_name)]
 # download the file and save to data folder
-googledrive::drive_download(file=file_id, overwrite = TRUE, path = file.path("data", file_name))
+googledrive::drive_download(file=file_id, overwrite = TRUE, path = file.path("work", FY 23 In House MARFIN - Merino Application ))
 
 tmp <- readxl::read_excel(file.path(here::here(), "data", "data.xlsx"))
 tmp
@@ -42,7 +51,6 @@ install.packages("googledrive")
 I have created a Google Drive folder in my NOAA account. It is only viewable if you are in NOAA, and is only editable by the creator (Eli). It has the following sample files:
 
 
-
 3. Copy the url to the Google Drive folder location*
 *Only people with a NOAA email will be able to see this folder
 
@@ -56,42 +64,31 @@ All files.
 dir_files <- googledrive::drive_ls(path = url_googledrive)
 dir_files$name
 
-## [1] "example.docx"           "example2.docx"          "our-google-spreadsheet"
-## [4] "data.xlsx"              "our-google-doc"         "Stone.csv"             
-## [7] "Rock.csv"
- 
-All csv files.
+## All csv files.
 
 dir_files <- googledrive::drive_ls(path = url_googledrive, type="csv")
 dir_files$name
 
-## [1] "Stone.csv" "Rock.csv"
- 
-All Excel files.
+## All Excel files.
 
 dir_files <- googledrive::drive_ls(path = url_googledrive, type="xlsx")
 dir_files$name
 
-## [1] "data.xlsx"
- 
-All Google Spreadsheets.
+## All Google Spreadsheets.
 
 dir_files <- googledrive::drive_ls(path = url_googledrive, type="spreadsheet")
 dir_files$name
 
-## [1] "our-google-spreadsheet"
- 
-All Google Documents.
+## All Google Documents.
 
 dir_files <- googledrive::drive_ls(path = url_googledrive, type="document")
 dir_files$name
-
-## [1] "our-google-doc"
  
 Download a file
 First get the files in the folder.
 
 a <- googledrive::drive_ls(path = url_googledrive)
+
 Download one Excel file
 Download from Google Drive and save to a folder called data.
 
