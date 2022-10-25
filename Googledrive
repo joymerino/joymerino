@@ -1,4 +1,4 @@
-url_googledrive <- "https://drive.google.com/drive/folders/1ZoHeyrLXAkqjY9VDfs8TNPNYf1l9na4a?usp=sharing"
+url_googledrive <- "https://drive.google.com/drive/u/0/folders/1ZoHeyrLXAkqjY9VDfs8TNPNYf1l9na4a"
 id_googledrive <- "1ZoHeyrLXAkqjY9VDfs8TNPNYf1l9na4a"
 
 dir_files <- googledrive::drive_ls(path = url_googledrive)
